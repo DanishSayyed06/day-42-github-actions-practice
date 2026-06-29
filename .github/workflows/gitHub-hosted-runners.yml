@@ -1,0 +1,30 @@
+name: Parallel Runner OS Job
+on: push
+
+jobs:
+  ubuntu-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Details
+        run: |
+          echo "OS: ubuntu-latest"
+          echo "Hostname: $HOSTNAME"
+          echo "User: $USER"
+
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - name: Print Details
+        run: |
+          echo "OS: windows-latest"
+          echo "Hostname: $env:COMPUTERNAME"
+          echo "User: $env:USERNAME"
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - name: Print Details
+        run: |
+          echo "OS: macos-latest"
+          echo "Hostname: $(hostname)"
+          echo "User: $(whoami)"
