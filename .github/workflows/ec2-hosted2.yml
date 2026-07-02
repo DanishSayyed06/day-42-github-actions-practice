@@ -1,0 +1,15 @@
+name: Self-Hosted Runner Test
+on: [push, workflow_dispatch]
+
+jobs:
+  test-runner:
+    # Targeting the runner by label
+    runs-on: [self-hosted, my-linux-runner]
+    steps:
+      - name: Print Label Confirmation
+        run: echo "This job is running on a runner labeled 'my-linux-runner'"
+
+      - name: Run Diagnostics
+        run: |
+          hostname
+          pwd
