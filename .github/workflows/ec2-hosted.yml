@@ -1,0 +1,18 @@
+name: Self-Hosted Runner Test
+on: [push, workflow_dispatch]
+
+jobs:
+  test-runner:
+    runs-on: self-hosted
+    steps:
+      - name: Print Hostname
+        run: hostname
+
+      - name: Print Working Directory
+        run: pwd
+
+      - name: Create and Verify File
+        run: |
+          echo "Test file created by self-hosted runner" > runner_test.txt
+          ls -l runner_test.txt
+          cat runner_test.txt
